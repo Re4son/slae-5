@@ -1,6 +1,6 @@
 ; Filename: msf-adduser.nasm
 ; Author: Metasploit
-; Analysed by Re4son <re4son [at] whitedome.com.au
+; Analysed by Re4son <re4son [at] whitedome.com.au>
 ; Purpose: Disassembly of msf linux/adduser
 ;          for research purpose
 
