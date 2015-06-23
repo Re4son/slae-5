@@ -41,8 +41,8 @@ _start:
   mov    dl,0x7         ; set the permit - read (1), write (2) and execute flags (4) in edx
   mov    ecx,0x1000     ; define the size of the region as 4096 bytes
   mov    ebx,esp        ; define the top of the stack as the start of the region
-  shr    ebx,0xc        ; do a little happy dance around the table
-  shl    ebx,0xc        ; and again the other way
+  shr    ebx,0xc        ; shift ebx 3 nibbles to the right to zero out the 12 least significant bits
+  shl    ebx,0xc        ;   and move 12 zeros back back, effectively moving the buffer down the stack by 1348 bytes 
   mov    al,0x7d        ; move system function call number 125 into al
   int    0x80           ; invoke mprotect system call
 
